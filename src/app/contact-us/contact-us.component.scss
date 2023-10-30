@@ -1,0 +1,21 @@
+address {
+    margin: 0px;
+  }
+  .card-img {
+    transition: transform 2s ease-out;
+    position: relative;
+  }
+  .card-img:hover {
+    transform: scale(2, 2);
+    object-fit: contain;
+    position: absolute;
+  }
+  .alert {
+    opacity: .2;
+    margin: 0px;
+    padding: 0px;
+  }
+  .alert, p {
+    color: black;
+    opacity: .9;
+  }

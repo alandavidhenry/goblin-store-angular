@@ -1,0 +1,54 @@
+<div class="container text-center border-bottom">
+  <h1>Gold Group</h1>
+  <h6>These goblins produce a special high frequency chirp that is so looked after.</h6>
+  <div class="container d-flex justify-content-around border-bottom p-sm-5">
+    
+    <div class="card" *ngFor="let goblin of goblinList | slice:0:3">
+      <div class="card-body">
+        <p class="card-text">{{ goblin.name }}<br>{{ goblin.price | currency : 'USD' : 'symbol' : '1.0-0' }}</p>
+      </div>
+      <img [src]="goblin.image" class="card-img-top mymodal" [alt]="goblin.name">
+      <button type="button" class="btn btn-primary" (click)="addToCart(goblin)">Add item</button>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center border-bottom">
+  <h1>Silver Group</h1>
+  <h6>These goblins are starting to learn the chirp, but can only produce it on a full moon.</h6>
+  <div class="container d-flex justify-content-around border-bottom p-sm-5">
+    <div class="card" *ngFor="let goblin of goblinList | slice:3:6">
+      <div class="card-body">
+        <p class="card-text">{{ goblin.name }}<br>{{ goblin.price | currency : 'USD' : 'symbol' : '1.0-0' }}</p>
+      </div>
+      <img [src]="goblin.image" class="card-img-top" [alt]="goblin.name">
+      <button type="button" class="btn btn-primary" (click)="addToCart(goblin)">Add item</button>
+    </div>
+</div>
+
+<div class="container text-center border-bottom">
+  <h1>Bronze Group</h1>
+  <h6>These goblins are on sale! Good luck trying to get a chirp out of these.</h6>
+  <div class="container d-flex justify-content-around border-bottom p-sm-5">
+    <div class="card" *ngFor="let goblin of goblinList | slice:6:9">
+      <div class="card-body">
+        <p class="card-text">{{ goblin.name }}<br>{{ goblin.price | currency : 'USD' : 'symbol' : '1.0-0' }}</p>
+      </div>
+      <img [src]="goblin.image" class="card-img-top" [alt]="goblin.name">
+      <button type="button" class="btn btn-primary" (click)="addToCart(goblin)">Add item</button>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center border-bottom">
+  <h1>Shopping Cart</h1>
+  <div class="container d-flex justify-content-around border-bottom p-sm-5">
+    <div *ngFor="let goblin of goblins">
+      <p>Name: {{ goblin.name }}<br>Price: {{ goblin.price | currency : 'USD' : 'symbol' : '1.0-0' }}</p>
+    </div>
+  </div>
+</div>
+
+
+
+

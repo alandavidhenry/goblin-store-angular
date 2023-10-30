@@ -1,0 +1,138 @@
+<div class="container pt-3 pb-5">
+
+  <h1 class="mb-4">Checkout</h1>
+  <h2 class="mb-4">Order details</h2>
+
+  <div>
+    <div>
+      <ul class="list-group mb-3">
+        <li class="list-group-item" *ngFor="let goblin of goblins; let i = index">
+          <div class="row">
+            <div class="col-2">
+              <img [src]="goblin.image" width="60px" height="60px" [alt]="goblin.name">
+            </div>
+            <div class="col-4">
+              {{ goblin.name }}
+            </div>
+            <div class="col-2">
+              {{ goblin.quantity }}
+            </div>
+            <div class="col-2">
+              {{ goblin.quantity * goblin.price | currency : 'USD' : 'symbol' : '1.0-0' }}
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ul class="list-group mb-3">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-9">
+          Sub-total
+        </div>
+        <div class="col-2">
+          {{ subTotal | currency : 'USD' : 'symbol' : '1.0-0' }}
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-9">
+          Goblin tax
+        </div>
+        <div class="col-2">
+          {{ goblinTax | percent }}
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-9">
+          Total
+        </div>
+        <div class="col-2">
+          {{ subTotal * (goblinTax + 1) | currency : 'USD' : 'symbol' : '1.0-0' }}
+        </div>
+      </div>
+    </li>
+  </ul>
+
+
+</div>
+
+<div class="container pt-3 pb-5">
+  <h2>Contact details</h2>
+  <p>Please enter your details below and click the 'Order now' button to make your purchase.</p>
+  <p>(All fields are required).</p>
+
+  <!-- Alert when form is sent successfully -->
+  <div class="alert">Form Submitted Successfully</div>
+
+  <form method="POST" id="checkoutForm">
+    <div class="row g-3 needs-validation" novalidate>
+      <div class="col-md-6">
+        <label for="inputFirstName" class="col-form-label">First name</label>
+        <input type="text" id="inputFirstName" class="form-control" aria-labelledby="firstNamelHelpInline" placeholder="Alan" required>
+        <div class="invalid-feedback">
+          Please enter your first name.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputLastName" class="col-form-label">Last name</label>
+        <input type="text" id="inputLastName" class="form-control" aria-labelledby="lastNameHelpInline" placeholder="Henry" required>
+        <div class="invalid-feedback">
+          Please enter your last name.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputEmail" class="col-form-label">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" aria-labelledby="emailHelpInline" placeholder="name@example.com" pattern="^(.+)@(.+)$" required>
+        <div class="invalid-feedback">
+          Please enter your email address.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputPhoneNumber" class="col-form-label">Phone Number</label>
+        <input type="tel" id="inputPhoneNumber" class="form-control" aria-labelledby="phoneNumberInline" placeholder="00000000000" pattern="\d{11}" required>
+        <div class="invalid-feedback">
+          Please enter your phone number.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputAddress" class="col-form-label">Address</label>
+        <input type="text" id="inputAddress" class="form-control" aria-labelledby="addressHelpInline" placeholder="1 Buckingham Palace, London, SW1A 1AA" required>
+        <div class="invalid-feedback">
+          Please enter your address.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputCardNumber" class="col-form-label">Credit Card Number</label>
+        <input type="text" id="inputCardNumber" class="form-control" aria-labelledby="cardNumberHelpInline" placeholder="12345678912345678" pattern="\d{16}" required>
+        <div class="invalid-feedback">
+          Please enter your credit card number.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputCardExpiryDate" class="col-form-label">Credit Card Expiry Date</label>
+        <input type="text" id="inputCardExpiryDate" class="form-control" aria-labelledby="cardExpiryDateHelpInline" placeholder="12/25" pattern="\d{2}/\d{2}" required>
+        <div class="invalid-feedback">
+          Please enter your credit card expiry date (mm/yy).
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <label for="inputCardCode" class="col-form-label">Credit Card 3-digit Code</label>
+        <input type="text" id="inputCardCode" class="form-control" aria-labelledby="cardCodeHelpInline" placeholder="123" pattern="\d{3}" required>
+        <div class="invalid-feedback">
+          Please enter your credit card security code.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="clearfix">
+        <input type="submit" id="button" class="btn btn-primary ps-5 pe-5" value="Order now">
+      </div>
+    </div>
+  </form>
+</div>

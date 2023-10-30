@@ -1,0 +1,56 @@
+[
+    {
+        "id": "1",
+        "name": "Supreme Goblin",
+        "price": 150,
+        "image": "/assets/img/goblin-1.png"
+    },
+    {
+        "id": "2",
+        "name": "Magical Goblin",
+        "price": 125,
+        "image": "/assets/img/goblin-2.png"
+    },
+    {
+        "id": "3",
+        "name": "Elite Goblin",
+        "price": 110,
+        "image": "/assets/img/goblin-3.png"
+    },
+    {
+        "id": "4",
+        "name": "Joker Goblin",
+        "price": 80,
+        "image": "/assets/img/goblin-4.png"
+    },
+    {
+        "id": "5",
+        "name": "Mage Goblin",
+        "price": 65,
+        "image": "/assets/img/goblin-5.png"
+    },
+    {
+        "id": "6",
+        "name": "Dancing Goblin",
+        "price": 55,
+        "image": "/assets/img/goblin-6.png"
+    },
+    {
+        "id": "7",
+        "name": "Sad Goblin",
+        "price": 35,
+        "image": "/assets/img/goblin-7.png"
+    },
+    {
+        "id": "8",
+        "name": "Broken Goblin",
+        "price": 25,
+        "image": "/assets/img/goblin-8.png"
+    },
+    {
+        "id": "9",
+        "name": "Crying Goblin",
+        "price": 15,
+        "image": "/assets/img/goblin-9.png"
+    }
+]

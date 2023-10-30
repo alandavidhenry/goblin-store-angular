@@ -1,0 +1,84 @@
+<div class="container border-bottom">
+  <h1>Shopping Cart</h1>
+
+  <div class="my-4" *ngIf="(!goblins.length)"> <!-- Only display this div if 'goblins' array is empty -->
+    No Items... Please add items to your cart.
+  </div>
+  <div>
+    <ul class="list-group mb-3">
+      <li class="list-group-item" *ngFor="let goblin of goblins; let i = index">
+        <div class="row">
+          <div class="col-2">
+            <img [src]="goblin.image" width="60px" height="60px" [alt]="goblin.name">
+          </div>
+          <div class="col-4">
+            {{ goblin.name }}
+          </div>
+          <div class="col-2">
+            <input 
+              class="form-control" 
+              type="number" 
+              min="1" 
+              value="1" 
+              name="" 
+              [(ngModel)]="goblin.quantity" 
+              [ngModelOptions]="{standalone: true}"
+              (change)="qtyChange(goblin)"
+            >
+          </div>
+          <div class="col-2">
+            {{ goblin.quantity * goblin.price | currency : 'USD' : 'symbol' : '1.0-0' }}
+          </div>
+          <div class="col-2">
+            <button class="btn btn-danger btn-sm" (click)="removeFromCart(goblin)">X</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="(goblins.length)">
+    <ul class="list-group mb-3">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-9">
+            Sub-total
+          </div>
+          <div class="col-2">
+            {{ subTotal | currency : 'USD' : 'symbol' : '1.0-0' }}
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-9">
+            Goblin tax
+          </div>
+          <div class="col-2">
+            {{ goblinTax | percent }}
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-9">
+            Total
+          </div>
+          <div class="col-2">
+            {{ subTotal * (goblinTax + 1) | currency : 'USD' : 'symbol' : '1.0-0' }}
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  <div>
+    <button type="button" class="btn btn-primary" routerLink="/checkout" [disabled]="(!goblins.length)" (click)="saveSubTotal()">
+      Continue to Checkout
+    </button>
+  </div>
+  
+</div>
+
+
